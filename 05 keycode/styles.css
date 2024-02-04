@@ -1,0 +1,48 @@
+/* TODO: :root */
+:root {
+  --HEIGHT: 100vh;
+  --WIDTH: 100vw;
+  --PADDING: 20px;
+  --FONT-SIZE: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  height: var(--HEIGHT);
+  width: var(--WIDTH);
+  background-color: #a2d9ce;
+  color: #0b5345;
+  font-size: var(--FONT-SIZE);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  padding: var(--PADDING);
+  border: 2px solid black;
+}
+
+.heading:hover {
+  animation: zoom-in 1s ease;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 20px;
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
