@@ -1,0 +1,26 @@
+.toggle {
+  position: absolute;
+}
+
+input {
+  display: inline;
+}
+
+.slider {
+  position: absolute;
+  /* background-color: #2196f3; */
+  background-color: #ccc;
+  display: inline-block;
+  height: 26px;
+  width: 40px;
+}
+
+.slider::before {
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-color: #2196f3;
+  position: relative;
+  top: 2px;
+}
