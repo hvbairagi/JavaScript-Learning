@@ -1,9 +1,54 @@
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.img {
-  height: 100vh;
+img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: block;
+  object-position: center;
+  object-fit: cover;
+}
+
+.blur-load::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  25% {
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  75% {
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.blur-load {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.blur-load.loaded > img {
+  opacity: 1;
+}
+
+.blur-load.loaded::before {
+  content: none;
+}
+
+.blur-load > img {
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
 }
