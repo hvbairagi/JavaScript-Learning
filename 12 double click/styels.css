@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: aqua;
+  position: relative;
+  height: 300px;
+  width: 500px;
+}
+
+.blinker {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  opacity: 0;
+}
+
+.blinker.active {
+  animation: blinkerAnimation 1s ease;
+}
+
+@keyframes blinkerAnimation {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+  }
+}

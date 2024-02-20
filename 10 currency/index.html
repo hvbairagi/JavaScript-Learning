@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styels.css" />
     <script src="script.js" defer></script>
-    <title>Document</title>
+    <title>Currency Formatter</title>
   </head>
   <body>
-    <select name="currency" id="currency"></select>
-    <input type="text" id="amount" />
+    <form onsubmit="submitHandler(event)" class="container">
+      <select name="currency" id="currency">
+        <option value="none">Select one:</option>
+        <option value="USD">USD</option>
+        <option value="INR">INR</option>
+      </select>
+      <input type="text" />
+    </form>
+
+    <!-- How to submit by pressing enter without a submit button -->
+    <!-- How to submit by input of type submit -->
+
+    <!-- <button></button> -->
+    <p id="result"></p>
   </body>
 </html>
