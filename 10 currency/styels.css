@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   width: 22rem;
   display: flex;
   justify-content: space-between;
