@@ -48,3 +48,5 @@ function reformatEUR(amount) {
   const res = amount.toLocaleString("en-GB", options);
   result.innerText = res;
 }
+
+// Alternate way: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
