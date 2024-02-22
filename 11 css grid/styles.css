@@ -11,6 +11,8 @@ body {
   grid-gap: 10px;
   max-width: 960px;
   margin: 0 auto;
+  /* align-items: start;
+  justify-items: start; */
 }
 
 #content div {
@@ -22,15 +24,17 @@ body {
   background: #777;
 }
 
-.nested {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  grid-column: span 3;
+.one{
+  justify-self:end;
+  align-self: end;
 }
 
-.nested p {
-  border: 1px solid white;
-  padding: 20px;
-  margin: 0;
+.two{
+  justify-self:center;
+  align-self: center;
+}
+
+.three{
+  justify-self:start;
+  align-self: start;
 }
