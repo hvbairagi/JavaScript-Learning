@@ -1,0 +1,31 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.triangle {
+  width: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 50px solid aqua;
+}
+
+.left {
+  transform: rotate(-90deg) translateY(10px);
+  border-bottom-color: black;
+}
+
+.down {
+  transform: rotate(180deg);
+  border-bottom-color: blueviolet;
+}
+
+.right {
+  transform: rotate(90deg);
+  border-bottom-color: blue;
+}
