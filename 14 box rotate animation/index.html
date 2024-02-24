@@ -7,9 +7,19 @@
     <title>Rotating Div</title>
   </head>
   <body>
-    <div class="triangle"></div>
-    <div class="triangle left"></div>
-    <div class="triangle down"></div>
-    <div class="triangle right"></div>
+    <div class="empty"></div>
+
+    <div class="cover">
+      <div class="center"></div>
+
+      <div class="square">
+        <svg viewBox="0 0 100 100">
+          <polygon class="top" points="5,5 50,50 95,5" />
+          <polygon class="left" points="5,5 50,50 5,95"></polygon>
+          <polygon class="down" points="5,95 50,50 95,95"></polygon>
+          <polygon class="right" points="95,5 50,50 95,95"></polygon>
+        </svg>
+      </div>
+    </div>
   </body>
 </html>

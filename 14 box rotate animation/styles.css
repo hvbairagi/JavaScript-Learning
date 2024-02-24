@@ -8,24 +8,71 @@ body {
   align-items: center;
 }
 
-.triangle {
-  width: 0;
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-  border-bottom: 50px solid aqua;
+.empty {
+  height: 200px;
+  width: 200px;
+}
+
+.cover {
+  display: flex;
+  align-items: center;
+
+  animation: rotateDiv 10s linear infinite;
+  transform-origin: 0;
+}
+
+.center {
+}
+
+.square {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+}
+
+svg {
+  height: 50%;
+  width: 50%;
+  animation: rotateDiv 5s linear infinite;
+  margin: 50px 50px;
+}
+
+@keyframes rotateDiv {
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+polygon {
+  fill: aliceblue;
+  stroke-linejoin: round;
+}
+
+.top {
+  fill: blue;
+  filter: drop-shadow(0px -5px 2px yellow);
 }
 
 .left {
-  transform: rotate(-90deg) translateY(10px);
-  border-bottom-color: black;
+  fill: purple;
+  filter: drop-shadow(-5px 0px 2px black);
 }
 
 .down {
-  transform: rotate(180deg);
-  border-bottom-color: blueviolet;
+  fill: yellow;
+  filter: drop-shadow(0px 5px 2px blue);
 }
 
 .right {
-  transform: rotate(90deg);
-  border-bottom-color: blue;
+  fill: black;
+  filter: drop-shadow(5px 0px 2px purple);
 }
