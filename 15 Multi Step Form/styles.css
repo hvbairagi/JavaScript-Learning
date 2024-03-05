@@ -1,0 +1,65 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 300px;
+  width: 700px;
+  background-color: aqua;
+  position: relative;
+}
+
+.number {
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  border: 2px solid purple;
+  border-radius: 50%;
+  padding: 5px;
+  position: relative;
+}
+
+.number::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 86px;
+  right: -86px;
+  top: 12px;
+  background-color: black;
+  transition: background-color 1s ease;
+}
+
+.number:nth-child(5)::before {
+  display: none;
+}
+
+.number.active::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 86px;
+  right: -86px;
+  top: 12px;
+  background-color: purple;
+}
+
+.upper-box {
+  background-color: beige;
+  padding: 20px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lower-box {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
