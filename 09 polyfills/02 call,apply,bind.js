@@ -50,3 +50,47 @@ Function.prototype.myBind = function (...args) {
 
 const result = printName.myBind(myName, "Indore");
 result("India");
+
+Function.prototype.myCall = function (obj, ...args) {
+  let sym = Symbol();
+  obj[sym] = this;
+  const res = obj[sym](...args);
+  delete obj.sym;
+  return res;
+};
+
+Function.prototype.myApply = function (obj, args) {
+  let sym = Symbol();
+  obj[sym] = this;
+  const res = obj[sym](...args);
+  delete obj[sym];
+  return res;
+};
+
+Function.prototype.myBind = function (obj, ...args) {
+  const fn = this;
+  return function (...a) {
+    fn.myCall(obj, ...args, ...a);
+  };
+};
+
+const person1 = {
+  name: "Harsh",
+  greet: function (city, state) {
+    console.log(`${this.name} from ${city}, ${state}`);
+  },
+};
+
+const person2 = {
+  name: "Pawan",
+};
+
+// person1.greet("Indore", "Madhya Pradesh");
+// person1.greet.call(person2, "Jaipur", "Rajasthan");
+// person1.greet.apply(person2, ["Jaipur", "Rajasthan"]);
+// const person2Greet = person1.greet.bind(person2);
+// person2Greet("Jaipur", "Rajasthan");
+// person1.greet.myCall(person2, "Jaipur", "Rajasthan");
+// person1.greet.myApply(person2, ["Jaipur", "Rajasthan"]);
+const f = person1.greet.myBind(person2, "Jaipur", "Rajasthan");
+f();
