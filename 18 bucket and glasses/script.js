@@ -1,17 +1,34 @@
 const bucket = document.querySelector(".bucket");
-console.log("Bucket: ", bucket);
+const glasses = document.querySelectorAll(".glass");
 
-function fillBucket() {
-  const bucketHeight = parseInt(bucket.style.height) || 0;
-  if (+bucketHeight < 100) {
-    bucket.style.height = bucketHeight + 20 + "%";
+function reLevelBucket(h) {
+  const bucketLevel = (Math.floor(bucket.style.height) || 0) / 10;
+  if (h > bucketLevel) {
+    fillBucket(h, bucketLevel);
+  } else if (h < bucketLevel) {
+    emptyBucket(h, bucketLevel);
   }
 }
 
-fillBucket();
-function emptyBucket() {
-  const bucketHeight = parseInt(bucket.style.height);
-  if (+bucketHeight > 0) {
-    bucket.style.height = bucketHeight - 20 + "%";
-  }
+function fillBucket(h, bucketLevel) {
+  if (+bucketLevel >= 100) return;
+  bucket.style.height = bucketLevel + h * 10 + "%";
+}
+
+function emptyBucket(h, bucketLevel) {
+  if (+bucketLevel <= 0) return;
+  bucket.style.height = bucketLevel - h * 10 + "%";
+}
+
+function refillGlasses(event) {
+  const id = +event.target?.id;
+  if (!id) return;
+  glasses.forEach((glass) => {
+    if (glass.id > id) {
+      glass.style.backgroundColor = "white";
+    } else {
+      glass.style.backgroundColor = "aqua";
+    }
+  });
+  reLevelBucket(id);
 }

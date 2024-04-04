@@ -18,6 +18,8 @@ body {
   width: 100px;
   border: 2px solid black;
   border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 
   display: flex;
   flex-direction: column;
@@ -27,4 +29,20 @@ body {
 .bucket {
   width: 100%;
   background-color: aqua;
+}
+
+.glass-container {
+  width: 180px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 10px;
+}
+
+.glass {
+  height: 40px;
+  width: 20px;
+  border: 2px solid black;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
