@@ -1,4 +1,22 @@
-const race = function (promisesArray) {
+const p1 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve("Resolved p1");
+  }, 500)
+);
+
+const p2 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve("Resolved p2");
+  }, 600)
+);
+
+const p3 = new Promise((resolve, reject) =>
+  setTimeout(() => {
+    resolve("Resolved p3");
+  }, 700)
+);
+
+Promise.prototype.myRace = function (promisesArray) {
   return new Promise((resolve, reject) => {
     promisesArray.forEach((promise) => {
       Promise.resolve(promise).then(resolve, reject).catch(reject);
@@ -25,5 +43,4 @@ Promise.prototype.myAll = function (values) {
   return promise;
 };
 
-
-Promise.myAll([p1])
+Promise.myAll([p1, p2, p3]);
