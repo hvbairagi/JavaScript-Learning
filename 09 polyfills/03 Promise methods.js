@@ -16,24 +16,24 @@ const p3 = new Promise((resolve, reject) =>
   }, 700)
 );
 
-Promise.prototype.myRace = function (promisesArray) {
+Promise.myRace = function (promises) {
   return new Promise((resolve, reject) => {
-    promisesArray.forEach((promise) => {
-      Promise.resolve(promise).then(resolve, reject).catch(reject);
+    promises.forEach((p) => {
+      Promise.resolve(p).then(resolve, reject).catch(reject);
     });
   });
 };
 
-Promise.prototype.myAll = function (values) {
+Promise.myAll = function (promises) {
   const promise = new Promise((resolve, reject) => {
     const result = [];
     let total = 0;
-    values.forEach((item, index) => {
-      Promise.resolve(item)
+    promises.forEach((p, index) => {
+      Promise.resolve(p)
         .then((res) => {
           result[index] = res;
           total++;
-          if (total === values.length) {
+          if (total === promises.length) {
             resolve(result);
           }
         })
@@ -43,4 +43,33 @@ Promise.prototype.myAll = function (values) {
   return promise;
 };
 
-Promise.myAll([p1, p2, p3]);
+Promise.myAllSettled = function (promises) {
+  const mappedPromises = promises.map((p) =>
+    p
+      .then((value) => {
+        return { status: "fulfilled", value };
+      })
+      .catch((reason) => {
+        return { status: "rejected", reason };
+      })
+  );
+  return Promise.all(mappedPromises);
+};
+
+Promise.myAny = function (promises) {
+  const promiseErrors = new Array(promises.length);
+  let counter = 0;
+  return new Promise((resolve, reject) => {
+    promises.forEach((p, index) => {
+      Promise.resolve(p)
+        .then(resolve)
+        .catch((error) => {
+          promiseErrors[index] = error;
+          counter++;
+          if (counter === promises.length) reject(promiseErrors);
+        });
+    });
+  });
+};
+
+Promise.myAny([p1, p2, p3]).then((res) => console.log(res));
