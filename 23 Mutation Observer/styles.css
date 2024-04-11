@@ -1,0 +1,16 @@
+.parent {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: brown;
+}
+
+.child {
+  background-color: antiquewhite;
+  width: 30%;
+  margin: 10px;
+
+  text-align: center;
+  align-content: center;
+}
