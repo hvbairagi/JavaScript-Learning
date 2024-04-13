@@ -14,10 +14,11 @@ const res = sum(1)(2)(3)(4)(5)(); // TODO
 console.log("Result: ", res);
 
 function sum(num1, num2) {
-  if (num2 !== undefined) {
-    return num1 * num2;
-  }
-  return function (num2) {
-    return num1 * num2;
-  };
+  // wrong code
+  // if (num2 !== undefined) {
+  //   return num1 * num2;
+  // }
+  // return function (num2) {
+  //   return num1 * num2;
+  // };
 }

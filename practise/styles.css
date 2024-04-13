@@ -1,0 +1,21 @@
+.container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  border-radius: 5px;
+  margin: 3px;
+  color: white;
+  transition: flex 1s ease-in;
+  flex: 0.1;
+}
+
+.panel.active {
+  flex: 1;
+}

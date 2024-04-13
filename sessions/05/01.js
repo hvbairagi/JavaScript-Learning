@@ -49,7 +49,7 @@ Array.prototype.myEvery = function (callback) {
 // TODO: create for find
 
 // console.log([1, 2, 3, 4].myEvery((el) => el % 1 === 0));
-// NOTE: when interacting with DOM, gives window object
+// NOTE: when interacting with DOM, 'this' gives window object
 // console.log(this); // global
 
 function f() {
@@ -114,5 +114,4 @@ obj1.getFullName.apply(obj2);
 obj1.getFullName.bind(obj2)();
 // TODO: call/bind/apply work, difference and polyfill
 
-
-[5,2,2,2,1,3,2,4,2].find()
+[5, 2, 2, 2, 1, 3, 2, 4, 2].find();
