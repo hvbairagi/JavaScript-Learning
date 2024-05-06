@@ -13,5 +13,5 @@ function doubleClickHandler(e) {
 }
 
 // try with inner height, inner width
-// e.target.getBoundingClientRect(); dropdown menu to open above select 
+// e.target.getBoundingClientRect(); dropdown menu to open above select
 // element

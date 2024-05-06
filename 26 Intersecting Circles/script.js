@@ -16,8 +16,8 @@ document.addEventListener("click", (e) => {
 });
 
 function showCircle(e, circle, obj) {
+  if (obj.timer) clearTimeout(obj.timer);
   obj.point = { x: ~~e.clientX, y: ~~e.clientY };
-  console.log(obj.point);
   circle.style.left = `${e.clientX}px`;
   circle.style.top = `${e.clientY}px`;
   const width = scale(Math.random(), 0, 1, 10, 50);
@@ -46,6 +46,5 @@ function isIntersecting() {
   if (!obj1.point || !obj2.point) return "Points not available.";
   const [x, y] = [obj1.point.x - obj2.point.x, obj1.point.y - obj2.point.y];
   distance = Math.floor(Math.sqrt(x * x + y * y));
-  console.log(distance, obj1.radius, obj2.radius);
   return distance < obj1.radius + obj2.radius ? true : false;
 }
