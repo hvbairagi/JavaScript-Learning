@@ -1,5 +1,12 @@
-console.log("Harsh Bairagi");
+const images = document.querySelectorAll(".image");
+const container = document.querySelector(".container");
 
-const fname = "Harsh";
+container.addEventListener("click", (event) => {
+  const image = event.target;
+  makeAllInactive();
+  image.classList.add("active");
+});
 
-export default fname;
+function makeAllInactive() {
+  images.forEach((i) => i.classList.remove("active"));
+}
